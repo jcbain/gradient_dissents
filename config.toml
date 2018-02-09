@@ -25,7 +25,7 @@ disqusshortname     = "gradient-dissents"                             # Enable D
     faviconfile         = "img/fav.ico"
     pygmentsStyle       = "monokai"                     # Choose theme: https://help.farbox.com/pygments.html
     pygmentsCodeFences  = true
-    footertext          = ""                            # Text to show in footer (overrides default text)
+    footertext          = "Introduction theme for Hugo. Life by ☕️ + 🐕"                            # Text to show in footer (overrides default text)
     fadein              = true                          # Turn on/off the fade-in effect
 
     showblog            = true                          # Show Blog section on home page
