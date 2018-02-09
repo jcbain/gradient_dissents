@@ -1,15 +1,15 @@
 baseurl             = "https://jcbain.github.io/"   # Your domain name. Must end with "/"
 languageCode        = "en-us"
-title               = "Gradient Dissents"
+title               = "James Bain"
 theme               = "introduction"
 enforce_ssl         = false
 builddrafts         = false                             # Include pages with draft status of true
 canonifyurls        = true                              # Turns relative urls into absolute urls
-# disqusshortname   = "xxx"                             # Enable Disqus for comments
+disqusshortname     = "gradient-dissents"                             # Enable Disqus for comments
 # googleAnalytics   = "xxx"
 
 [params]
-    bloghead            = "Blog"                        # Full name shows on blog post pages
+    bloghead            = "Gradient Dissents"                        # Full name shows on blog post pages
     firstname           = "James"                       # First name shows in introduction on main page
     tagline             = "Computational Linguistics, Diversity, Anthropology"       # Appears after the introduction
     introheight         = "fullheight"                       # Input either 'medium' or 'large' or 'fullheight'
