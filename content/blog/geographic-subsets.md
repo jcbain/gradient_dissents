@@ -68,4 +68,169 @@ kc <- geographies %>%
   left_join(pop, by = 'GEOID') 
 ```
 
-Let's go ahead and visuzlize what we have here.
+Let's go ahead and visualize what we have here.
+
+```r
+kc %>%
+  ggplot(aes(fill = aa)) + 
+  geom_sf( colour = '#ffffff', size = 0.1) + 
+  scale_fill_viridis(option = "inferno", direction = -1) +
+  labs(title = "Kansas City's African American Population",
+       subtitle = "Proportion by Census Tract" ,
+       caption = 'Data: 2015 American Community Survey')
+ ```
+
+![Kansas City Map](/img/post2/kc_aa_prop_full.png)
+
+Oh my! I'm more interested in the city center and the surrounding suburbs, not really those who exoburbs. Let's try those within a 40 kilometer radius of the center of Kansas City, MO. Any tract that is captured in this circled area below is permitted. Everyone else, well thanks for playing and perhaps next time.
+
+![Kansas City Selection](/img/post2/kc_aa_selection.png)
+
+Before I dive into my solutions, I want to extend my highest praise for the `sf` package. It is written with usability in mind so if you are working with simple features, checkout `sf` if you haven't already. It also integrates with the `dplyr` pipe (`%>%`) so HOLLA 🙌!!! 
+
+#### Attempt 1: *Lessons in Naïveté*
+
+I felt okay about this method until I came across a much cleaner and more elegant way of achieving the stated goal but I am also a believer in working through problems on your own and configuring your own solutions, even if it means embarrassing yourself when you put it on the web. 
+
+My algorithm is as follows. First, declare a center point for the city of Kansas City. This was as difficult as Googling 'Kansas City coordinates'. Then, I would write a function that can be applied row-wise to a data frame to calculate the distance between the row's simple feature and the geographic center of Kansas City. I run this function over the `kc` data frame created above. Then I simply subset for those rows within 40 km and then plot. Voilà! 
+
+```r
+# Kansas City Coordinates to calculate distance from 
+kc_center <- st_sfc(st_point(c(-94.5786 ,  39.0997)))
+kc_center = st_sf(geom = kc_center)
+st_crs(kc_center) = 4326
+
+# function to calculate the closet point of each census tract
+find_distance <- function(row, coord){
+  row %>% 
+    st_cast('POINT') %>%
+    st_transform(crs = 32119) %>%
+    st_distance(st_transform(coord, crs = 32119)) %>%
+    min()
+}
+
+kc_sub <- kc %>% 
+  by_row(.collate = "cols", function(row){
+    row %>% 
+      st_cast('POINT') %>%
+      st_transform(crs = 32119) %>%
+      st_distance(st_transform(kc_center, crs = 32119)) %>%
+      min() %>% 
+      unlist() 
+  })
+
+# subset and plot
+kc_sub %>% 
+  filter(.out <= 40000) %>%
+  ggplot(aes(fill = aa)) + 
+  geom_sf( colour = '#ffffff', size = 0.1) + 
+  scale_fill_viridis(option = "inferno", direction = -1) +
+  labs(title = "Kansas City's African American Population",
+       subtitle = "Proportion by Census Tract" ,
+       caption = 'Data: 2015 American Community Survey')
+```
+
+![KC 40km](/img/post2/kc_40_original.png)
+
+There was something that didn't sit well with me about all of this code. It was too much for something that had to be a lot more common so I went back out to search for a better solution.
+
+#### Attempt 2: *Lessons in Humility*
+
+This method requires me to transform the default Coordinate Reference System (CRS) or the `kc` data frame but after you get through that, the following functions are rather intuitive. It requires you specifying the point coordinates of the center of the city, similar to the first solution, but then creating a buffer of *x* distance around this point. From there it is as simple as finding the intersection of this buffer and the `kc` data frame and then subsetting the data based off of this intersection.
+
+```r
+# convert crs 
+
+kc_sf <- st_sf(kc)
+new_proj <- "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs"
+kc_sf <- st_transform(kc_sf, st_crs(new_proj))
+
+# create buffer of 40 km
+kc_ctr_sfc <- st_sfc(st_point(c(-94.5786 ,  39.0997)), crs = 4326)
+kc_ctr_aea_sf <- st_transform(kc_ctr_sfc, st_crs(kc_sf))
+kc_buf_sf <- st_buffer(kc_ctr_aea_sf, 40000)
+
+# find intersection and subset
+kc_buf_intersects <- st_intersects(kc_buf_sf, kc_sf)
+kc_sel_sf <- kc_sf[unlist(kc_buf_intersects),]
+
+# plot
+kc_sel_sf %>%
+  st_transform( crs = 4326) %>%
+  ggplot()+
+  geom_sf(aes(fill = aa), colour = '#ffffff', size = 0.1) + 
+  scale_fill_viridis(option = "inferno", direction = -1) +
+  labs(title = "Kansas City's African American Population",
+       subtitle = "Proportion by Census Tract" ,
+       caption = 'Data: 2015 American Community Survey')
+```
+
+And this renders...
+
+![KC 40km remake](/img/post2/kc_40_remake.png)
+
+Okay, the good news is that they create the same map. That's a good sign that they are working. The bad news is that I want to zoom in a bit more. Let's say 20 kilometers from the city center BUT FIRST let's wrap this all up into a function.
+
+```r
+subset_map <- function(df, long, lat, dist = 40000){
+  # Change CRS for buffer
+  df_sf = sf::st_sf(df)
+  new_proj = "+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +units=m +no_defs"
+  df_sf = sf::st_transform(df_sf, sf::st_crs(new_proj))
+  
+  # Prepare buffer around center point
+  cntr_pnt <- sf::st_sfc(sf::st_point(c(long ,  lat)), crs = 4326)
+  cntr_aea_sf <- sf::st_transform(cntr_pnt, sf::st_crs(df_sf))
+  buff <- sf::st_buffer(cntr_aea_sf, dist)
+  
+  # Subset original data
+  intersection <- sf::st_intersects(buff, df_sf)
+  subset <- df_sf[unlist(intersection),]
+  
+  subset
+  
+}
+```
+
+This made things a lot easier. Oh and just for the hell of it I'm going to add a layer of highways, which can be found [here](http://www.marc.org/Data-Economy/Maps-and-GIS/GIS-Data/GIS-Datasets).
+
+```r
+highways <- st_read('~/Downloads/highway_system/highway_system.shp')
+
+subset_map(kc_sub, -94.5786, 39.0997, dist = 20000) %>%
+  ggplot()+
+  geom_sf(aes(fill = aa), colour = '#ffffff', size = 0.1) + 
+  geom_sf(data = highways, color = '#d1d0cf') +
+  theme_mapper()+
+  scale_fill_viridis(option = "inferno", direction = -1) +
+  labs(title = "Kansas City's African American Population",
+       subtitle = "Proportion by Census Tract" ,
+       caption = 'Data: 2015 American Community Survey')
+```
+
+![KC 40km remake](/img/post2/kc_20_full_hwy.png)
+
+But there is one more thing. We should subset `highways` too for consistency.
+
+```r
+highway_sub <- subset_map(highways, -94.5786, 39.0997, dist = 20000)
+
+subset_map(kc_sub, -94.5786, 39.0997, dist = 20000) %>%
+  ggplot()+
+  geom_sf(aes(fill = aa), colour = '#ffffff', size = 0.1) + 
+  geom_sf(data = highway_sub, color = '#d1d0cf') +
+  theme_mapper()+
+  scale_fill_viridis(option = "inferno", direction = -1) +
+  labs(title = "Kansas City's African American Population",
+       subtitle = "Proportion by Census Tract" ,
+       caption = 'Data: 2015 American Community Survey')
+```
+
+![KC 40km remake](/img/post2/kc_20_full_sub.png)
+
+And there we have it! And once again...
+
+**Links that have helped me along the way...**
+
+- [Operations with Spatial Vector Data in R](https://cengel.github.io/rspatial/3_spDataOps.nb.html) by *Claudia A Engel*
+- [Introduction to spatial site-suitability analysis in R](spatialreference.org) by *Ken Steif*
