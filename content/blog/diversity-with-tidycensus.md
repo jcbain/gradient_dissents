@@ -1,6 +1,6 @@
 ---
-title: "Diversity With Tidycensus"
-date: 2018-02-07T23:05:58-06:00
+title: "Restricting Geography around a Point using `sf`"
+date: 2018-02-18T23:05:58-06:00
 draft: false
 ---
 
