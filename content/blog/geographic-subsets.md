@@ -6,9 +6,9 @@ draft: true
 
 This was one of those moments where my Googling ability failed me. For learning purposes, this is great, but in terms of time, well I'm never getting those couple of days in February back. So this is a story about how I thought I solved a problem that had yet to be solved. This is also a story about how I was stupid to think that I was the first to solve a problem that must be fairly common. 
 
-I'm interested in cities and their people and city metropolitan areas often span multiple counties, however, not all counties are equal particularly in terms of area. Seriously, look up San Bernardino county, California and see how many New England states you can fit inside it. Well, the problem is that you are often not interested in all of the super-geographies during an analysis. Instead, you are interested in some sub-geographies that make up a certain radius around a coordinate. This was my issue and this post is going to walk you through two different solutions: one out of naïveté and the other a bit more researched.
+I'm interested in cities and their people, and city metropolitan areas often span multiple counties, however, not all counties are equal particularly in terms of area. Seriously, look up San Bernardino county, California and see how many New England states you can fit inside it. Well, the problem is that you are often not interested in all of the super-geographies during an analysis. Instead, you are interested in some sub-geographies that make up a certain radius around a coordinate. This was my issue and this post is going to walk you through two different solutions: one out of naïveté and the other a bit more researched.
 
-Kansas City is the perfect candidate to test subsetting around a coordinate. It's metropolitan area spans 9 counties and 2 states (the majority in Missouri and some in Kansas). Just to be exhaustive, I will be collecting on a 15 county area. It also happens to be my place of birth and where I spent the majority of the first 18 years of my life. I will be using `tidycensus` to gather the Census tracts for each of these counties along with the 2015 American Community Survey estimates on the proportion of African Americans living in each tract. Take a look at my [previous post](https://jcbain.github.io/blog/diversity-with-tidycensus/) for a more detailed explanation of using `tidycensus` to collect ACS data. First we will load in our packages and then collect our data.
+Kansas City is the perfect candidate to test subsetting around a coordinate. Its metropolitan area spans 9 counties and 2 states (the majority in Missouri and some in Kansas). Just to be exhaustive, I will be collecting on a 15 county area. It also happens to be my place of birth and where I spent the majority of the first 18 years of my life. I will be using `tidycensus` to gather the Census tracts for each of these counties along with the 2015 American Community Survey estimates on the proportion of African Americans living in each tract. Take a look at my [previous post](https://jcbain.github.io/blog/diversity-with-tidycensus/) for a more detailed explanation of using `tidycensus` to collect ACS data. First we will load in our packages and then gather our data.
 
 ```r
 library(tidyverse)  
@@ -54,7 +54,7 @@ geographies <- reduce(
 )
 ```
 
-Then I have to do some pre-processing. `B02001_001E` is the variable for the total number of people estimate for the selected geography and `B02001_003E` is the estimate of African Americans within a geography. I want a proportion instead of raw count so I have to convert the current `pop` data frame into wide format. I then join this back to the geographic simple features data frame `geographies` so that we can visualize the proportion graphically.
+Then I have to do some pre-processing. `B02001_001E` is the variable for the total number of people estimate for the selected geography and `B02001_003E` is the estimate of African Americans within a geography. I want a proportion instead of raw count so I have to convert the current `pop` data frame into wide format. Wide format allows me to use mutate in order to calculate a proportion. I then join this back to the geographic simple features data frame `geographies` so that we can visualize the proportion graphically.
 
 ```r
 pop %<>%
@@ -82,7 +82,7 @@ kc %>%
 
 ![Kansas City Map](/img/post2/kc_aa_prop_full.png)
 
-Oh my! I'm more interested in the city center and the surrounding suburbs, not really those who exoburbs. Let's try those within a 40 kilometer radius of the center of Kansas City, MO. Any tract that is captured in this circled area below is permitted. Everyone else, well thanks for playing and perhaps next time.
+Oh my! I'm more interested in the city center and the surrounding suburbs, not really those who are in the exoburbs. Let's try those within a 40 kilometer radius of the center of Kansas City, MO. Any tract that is captured in this circled area below is permitted. Everyone else, well thanks for playing and perhaps next time.
 
 ![Kansas City Selection](/img/post2/kc_aa_selection.png)
 
@@ -132,11 +132,11 @@ kc_sub %>%
 
 ![KC 40km](/img/post2/kc_40_original.png)
 
-There was something that didn't sit well with me about all of this code. It was too much for something that had to be a lot more common so I went back out to search for a better solution.
+This worked but there was something that didn't sit well with me about all of this code. It was too much for something that had to be a lot more common. So for the second time in two days I found myself checking the interwebs for those who have surely done this task. 
 
 #### Attempt 2: *Lessons in Humility*
 
-This method requires me to transform the default Coordinate Reference System (CRS) or the `kc` data frame but after you get through that, the following functions are rather intuitive. It requires you specifying the point coordinates of the center of the city, similar to the first solution, but then creating a buffer of *x* distance around this point. From there it is as simple as finding the intersection of this buffer and the `kc` data frame and then subsetting the data based off of this intersection.
+This method requires me to transform the default Coordinate Reference System (CRS) for the `kc` data frame but after you get through that, the following functions are rather intuitive. It requires you specifying the point coordinates of the center of the city, similar to the first solution, but then creating a buffer of *x* distance around this point. From there it is as simple as finding the intersection of this buffer and the `kc` data frame and then subsetting the data based off of this intersection.
 
 ```r
 # convert crs 
@@ -169,7 +169,7 @@ And this renders...
 
 ![KC 40km remake](/img/post2/kc_40_remake.png)
 
-Okay, the good news is that they create the same map. That's a good sign that they are working. The bad news is that I want to zoom in a bit more. Let's say 20 kilometers from the city center BUT FIRST let's wrap this all up into a function.
+Okay, the good news is that my original solution and the second solution render the same map. That's a good sign that they are working. The other (neutral) news is that I want to zoom in a bit more. Let's say 20 kilometers from the city center. Since this task was becoming somewhat repetitive I thought a function could really help out...
 
 ```r
 subset_map <- function(df, long, lat, dist = 40000){
@@ -210,7 +210,8 @@ subset_map(kc_sub, -94.5786, 39.0997, dist = 20000) %>%
 
 ![KC 40km remake](/img/post2/kc_20_full_hwy.png)
 
-But there is one more thing. We should subset `highways` too for consistency.
+
+Whoops! The highways layer would look better if it were also subset. 
 
 ```r
 highway_sub <- subset_map(highways, -94.5786, 39.0997, dist = 20000)
