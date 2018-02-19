@@ -1,7 +1,7 @@
 ---
 title: "Geographic Distance Subsets in R"
 date: 2018-02-18T17:33:28-06:00
-draft: true
+draft: false
 ---
 
 This was one of those moments where my Googling ability failed me. For learning purposes, this is great, but in terms of time, well I'm never getting those couple of days in February back. So this is a story about how I thought I solved a problem that had yet to be solved. This is also a story about how I was stupid to think that I was the first to solve a problem that must be fairly common. 
