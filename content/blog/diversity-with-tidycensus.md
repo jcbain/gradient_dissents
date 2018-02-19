@@ -101,7 +101,7 @@ pop %>%
 
 This produces the following map:
 
-![Cincinnati Map](/img/cin_diversity.png)
+![Cincinnati Map](/img/post1/cin_diversity.png)
 
 There are a couple things to note about this graph. The first is that the tracts are trimmed based off of geographical center of the city that I didn't show within the code (this will come in future posts). Secondly, the center of the city tends to be more diverse than the margins. In other words, the suburbs tend to be a less racially diverse than the center of the city. 
 
