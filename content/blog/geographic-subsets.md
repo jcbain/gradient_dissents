@@ -8,7 +8,7 @@ This was one of those moments where my Googling ability failed me. For learning 
 
 I'm interested in cities and their people, and city metropolitan areas often span multiple counties, however, not all counties are equal particularly in terms of area. Seriously, look up San Bernardino county, California and see how many New England states you can fit inside it. Well, the problem is that you are often not interested in all of the super-geographies during an analysis. Instead, you are interested in some sub-geographies that make up a certain radius around a coordinate. This was my issue and this post is going to walk you through two different solutions: one out of naïveté and the other a bit more researched.
 
-Kansas City is the perfect candidate to test subsetting around a coordinate. Its metropolitan area spans 9 counties and 2 states (the majority in Missouri and some in Kansas). Just to be exhaustive, I will be collecting on a 15 county area. It also happens to be my place of birth and where I spent the majority of the first 18 years of my life. I will be using `tidycensus` to gather the Census tracts for each of these counties along with the 2015 American Community Survey estimates on the proportion of African Americans living in each tract. Take a look at my [previous post](https://jcbain.github.io/blog/diversity-with-tidycensus/) for a more detailed explanation of using `tidycensus` to collect ACS data. First we will load in our packages and then gather our data.
+Kansas City is the perfect candidate to test subsetting around a coordinate. Its metropolitan area spans 9 counties and 2 states (the majority in Missouri and some in Kansas). Just to be exhaustive, I will be collecting on a 15 county area. It also happens to be my place of birth and where I spent the majority of the first 18 years of my life. I will be using `tidycensus` to gather the Census tracts for each of these counties along with the 2015 American Community Survey estimates on the proportion of Black Americans living in each tract. Take a look at my [previous post](https://jcbain.github.io/blog/diversity-with-tidycensus/) for a more detailed explanation of using `tidycensus` to collect ACS data. First we will load in our packages and then gather our data.
 
 ```r
 library(tidyverse)  
@@ -75,7 +75,7 @@ kc %>%
   ggplot(aes(fill = aa)) + 
   geom_sf( colour = '#ffffff', size = 0.1) + 
   scale_fill_viridis(option = "inferno", direction = -1) +
-  labs(title = "Kansas City's African American Population",
+  labs(title = "Kansas City's Black American Population",
        subtitle = "Proportion by Census Tract" ,
        caption = 'Data: 2015 American Community Survey')
  ```
@@ -125,7 +125,7 @@ kc_sub %>%
   ggplot(aes(fill = aa)) + 
   geom_sf( colour = '#ffffff', size = 0.1) + 
   scale_fill_viridis(option = "inferno", direction = -1) +
-  labs(title = "Kansas City's African American Population",
+  labs(title = "Kansas City's Black American Population",
        subtitle = "Proportion by Census Tract" ,
        caption = 'Data: 2015 American Community Survey')
 ```
@@ -160,7 +160,7 @@ kc_sel_sf %>%
   ggplot()+
   geom_sf(aes(fill = aa), colour = '#ffffff', size = 0.1) + 
   scale_fill_viridis(option = "inferno", direction = -1) +
-  labs(title = "Kansas City's African American Population",
+  labs(title = "Kansas City's Black American Population",
        subtitle = "Proportion by Census Tract" ,
        caption = 'Data: 2015 American Community Survey')
 ```
@@ -203,7 +203,7 @@ subset_map(kc_sub, -94.5786, 39.0997, dist = 20000) %>%
   geom_sf(data = highways, color = '#d1d0cf') +
   theme_mapper()+
   scale_fill_viridis(option = "inferno", direction = -1) +
-  labs(title = "Kansas City's African American Population",
+  labs(title = "Kansas City's Black American Population",
        subtitle = "Proportion by Census Tract" ,
        caption = 'Data: 2015 American Community Survey')
 ```
@@ -222,7 +222,7 @@ subset_map(kc_sub, -94.5786, 39.0997, dist = 20000) %>%
   geom_sf(data = highway_sub, color = '#d1d0cf') +
   theme_mapper()+
   scale_fill_viridis(option = "inferno", direction = -1) +
-  labs(title = "Kansas City's African American Population",
+  labs(title = "Kansas City's Black American Population",
        subtitle = "Proportion by Census Tract" ,
        caption = 'Data: 2015 American Community Survey')
 ```
