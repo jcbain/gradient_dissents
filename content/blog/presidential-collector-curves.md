@@ -1,7 +1,7 @@
 ---
 title: "Presidential Collector Curves"
 date: 2018-03-25T14:34:39-05:00
-draft: true
+draft: false
 ---
 
 Confession 1: I'm less of a person this week. I had my appendix removed on Tuesday. It was my first surgical experience where I was anesthetized, which scared the hell out of me. Turns out that the doctor tells you to take some breathes and the next thing you know you are being woken up by a man named Nate who should really be more interested in your inebriated, albeit transcendental, commentary. 10 for 10 in terms of experiences you weren't expecting in a week.
