@@ -135,7 +135,7 @@ for file in inaugural.fileids():
 
 And now I'm transition to the `R` portion of this post. Sorry `python`, none of your libraries are even worthy of standing next to `ggplot2`. Again, first come the packages.
 
-```r
+```splus
 library(readr)
 library(dplyr)
 library(purrr)
@@ -144,7 +144,7 @@ library(ggplot2)
 
 And next we need to do some manipulation just so all of the files are easy to work with. We want them all in one data frame and to read them all from separate files, we need to use `purrr`'s `map()` and `reduce()` functionality, along with `readr` to read in the files.
 
-```r
+```splus
 files <- dir(path = "path/to/output/", pattern = "*.csv", full.names = TRUE)
 
 data <- files %>%
@@ -154,7 +154,7 @@ data <- files %>%
 
 Time for some 👏plots👏!!!! Let's see how Obama did in 2009 in relation to all other Presidents. 
 
-```r
+```splus
 obama <- filter(data, president == 'Obama')
 
 ggplot() +
@@ -170,7 +170,7 @@ And that's why they call it a curve. There are a couple of interesting things he
 
 But who are the rest of the curves? Let's take a look.
 
-```r
+```splus
 full <- data %>%
  mutate(combined = paste(year, president), normalized = counts/vocab_size)
 
