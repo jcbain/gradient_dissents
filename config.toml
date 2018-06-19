@@ -7,7 +7,8 @@ builddrafts         = false                             # Include pages with dra
 canonifyurls        = true                              # Turns relative urls into absolute urls
 disqusshortname     = "gradient-dissents"                             # Enable Disqus for comments
 # googleAnalytics   = "xxx"
-pygmentsUseClassic  = true                            # enable syntax highlighting
+PygmentsCodeFences  = true
+PygmentsStyle       = "monokai"                          # enable syntax highlighting
 
 [params]
     bloghead            = "Gradient Dissents"                        # Full name shows on blog post pages
