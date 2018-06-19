@@ -8,7 +8,7 @@ canonifyurls        = true                              # Turns relative urls in
 disqusshortname     = "gradient-dissents"                             # Enable Disqus for comments
 # googleAnalytics   = "xxx"
 PygmentsCodeFences  = true
-PygmentsStyle       = "monokai"                          # enable syntax highlighting
+PygmentsStyle       = "manni"                          # enable syntax highlighting
 
 [params]
     bloghead            = "Gradient Dissents"                        # Full name shows on blog post pages
