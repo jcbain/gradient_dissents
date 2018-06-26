@@ -12,7 +12,7 @@ In an effort to keep them comfortable, I stayed home. It was a good opportunity 
 
 ![Go Logo](/img/post5/go_logo.png)
 
-So I thought this would be a good learning experience. The tutorials are great but this problem is a good way to start thinking about the language. If you need a refresher of what I am talking about, [here's](https://jcbain.github.io/blog/coin-flip-probs/) post about it in `python`. 
+So I thought this would be a good learning experience. The tutorials are great but this problem is a good way to start thinking about the language. If you need a refresher of what I am talking about, [here's](https://jcbain.github.io/blog/coin-flip-probs/) my post about it in `python`. 
 
 {{< tweet 1008939111925809153 >}}
 
@@ -46,9 +46,9 @@ func FlipCoin() string {
 }
 ```
 
-The `rand` package provides some pretty convenient methods, however, they are deterministic by default and therefore setting the seed is important. I know, seed setting makes it deterministic too, which is why I followed the convention of passing the current nano second as the seed. `rand.Intn(2)` also returns either 0 or 1. Perfect!
+The `rand` package provides some pretty convenient methods, however, they are deterministic by default and therefore setting the seed is important. I know, seed setting makes it deterministic too, which is why I followed the convention of passing the current nanosecond as the seed. `rand.Intn(2)` also returns either 0 or 1. Perfect!
 
-Step 3: Flip until condition is met
+Step 3: Flip until condition is met.
 
 ```go
 // flip until condition is met
