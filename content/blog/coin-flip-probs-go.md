@@ -1,7 +1,7 @@
 ---
 title: "Coin Flip Probability with Go"
 date: 2018-06-25T22:51:22-05:00
-draft: true
+draft: false
 ---
 
 I decided to return to this problem of average probability of getting two heads flipped in a row versus a heads then a tails. I know, beat a dead horse much (💀🐴)? Hear me out...
