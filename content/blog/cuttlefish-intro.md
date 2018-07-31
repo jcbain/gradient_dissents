@@ -1,7 +1,7 @@
 ---
 title: "Introducing Cuttlefish"
 date: 2018-07-30T20:11:33-05:00
-draft: true
+draft: false
 ---
 
 I created something new. Actually, I <u>am creating</u> something new and I am proud to say that I finally got to name something after my favorite cephalopod, the humble cuttlefish. Don't know what a cuttlefish is? 
