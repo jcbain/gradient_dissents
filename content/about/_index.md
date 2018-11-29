@@ -1,5 +1,5 @@
 +++
-date = "2016-11-05T21:05:33+05:30"
+date = "2018-11-29T21:05:33+05:30"
 title = "About me"
 +++
 
@@ -18,4 +18,4 @@ The Big Oxmox advised her not to do so, because there were thousands of bad Comm
 
 When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then
 
-[1]: /img/about.jpg
+[1]: /img/profile.jpg
