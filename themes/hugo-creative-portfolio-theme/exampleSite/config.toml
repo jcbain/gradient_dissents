@@ -1,18 +1,18 @@
-baseurl = "https://jcbain.github.io/" 
-title = "James Bain"
+baseurl = "https://example.org/"
+title = "Creative portfolio"
 theme = "hugo-creative-portfolio-theme"
 languageCode = "en-us"
 # Enable comments by entering your Disqus shortname
-disqusshortname     = "gradient-dissents"   
+disqusShortname = ""
 # Enable Google Analytics by entering your tracking code
-# googleAnalytics = ""
+googleAnalytics = ""
 
 [params]
   # Style options: default (pink), blue, green, pink, red, sea, violet
   # Use custom.css for your custom styling
-  style = "violet"
+  style = "default"
   description = "Describe your website"
-  copyright = "&copy;2016 James Chester Bain"
+  copyright = "&copy;2016 Your name or company"
   sidebarAbout = [
     "I am a creative illustrator and graphic designer with more than 10 years of experience.",
     "Originally from Toronto, currently based in London."
@@ -46,12 +46,12 @@ disqusshortname     = "gradient-dissents"
   url = "contact/"
 
   [params.social]
-  # facebook      = "full page or profile url in facebook"
-  # googleplus    = "full profile url in googleplus"
-  email         = "jamescbain@gmail.com"
-  twitter       = "https://twitter.com/gymbrane"
-  linkedin      = "https://linkedin.com/in/james-bain-971805123/"
-  stackoverflow = "https://stackoverflow.com/users/2969279/gymbrane?tab=profile"
-  # instagram     = "full profile url in instagram"
-  github        = "https://github.com/jcbain/"
-  # youtube       = "full profile url in youtube" 
+  facebook      = "full page or profile url in facebook"
+  googleplus    = "full profile url in googleplus"
+  email         = "email@example.com"
+  twitter       = "full profile url in twitter"
+  linkedin      = "full profile url in linkedin"
+  stackoverflow = "full profile url in stackoverflow"
+  instagram     = "full profile url in instagram"
+  github        = "full profile url in github"
+  youtube       = "full profile url in youtube" 
