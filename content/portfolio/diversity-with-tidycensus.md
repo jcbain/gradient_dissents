@@ -7,7 +7,7 @@ showonlyimage = false
 weight = 1
 +++
 
-There are very few recent packages that I can say shaved a month off of my dissertation work, particularly in a language like `R` where there are 3,000,000 ways to do the same thing. But `tidycensus`, my hat's off to you 👏👏👏! If you need Census data (or not) I strongly urge you to check out Kyle Walker's [tidycnesus](https://walkerke.github.io/tidycensus/).
+There are very few recent packages that I can say shaved a month off of my dissertation work, particularly in a language like `R` where there are 3,000,000 ways to do the same thing. But `tidycensus`, my hat's off to you 👏👏👏! If you need Census data (or not) I strongly urge you to check out Kyle Walker's [tidycensus](https://walkerke.github.io/tidycensus/).
 
 Diversity is a difficult concept. It might be even more difficult to assess simply because there are several ways to measure it. I'm not going to discuss all of these measures nor am I going to really go over definitions in this post, but if you are interested in how to assess diversity I recommend checking out Scott Page's [Diversity and Complexity](https://press.princeton.edu/titles/9208.html). Instead, I'm going to dive into the world of assessing the racial diversity<sup>1</sup> of cities using data gathered from the American Community Survey, but first a problem:
 
