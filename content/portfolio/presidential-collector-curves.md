@@ -1,7 +1,7 @@
 +++
 draft = false
 image = "img/post3/collectors_obama.png"
-showonlyimage = false
+showonlyimage = true
 date = "2018-03-25T14:34:39-05:00"
 title = "Presidential Collector Curves"
 weight = 4
