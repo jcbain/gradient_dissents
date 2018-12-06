@@ -11,4 +11,4 @@ Sunday nights are for laundry, mental preparation for the week ahead and House H
 
 Whether we realize it or not, transportation plays a key role in our lives and transportation is made possible by the appropriate infrastructure. Tramlines, bike paths, highways, they can all bring about opportunity for communities. But opportunity for whom and what expense? This post is the first in a series of posts that will explore how transportation shapes the lives of communities. 
 
-The story begins in Denver, Colorado
+The story begins in Denver, Colorado. More specifically, the highway system in Denver and how it creates borders between opportunity. 
