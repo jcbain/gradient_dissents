@@ -35,14 +35,22 @@ But this is certainly not where the story ends. In fact, by the time we get to t
 
 This is beginning to paint a picture. The first noticeable observation from the gif above is that the city is rather segregated in some places. But how does this translate to highways and poverty? I thought to [partition the data](https://papers.nips.cc/paper/5605-partition-wise-linear-models.pdf) into neighborhoods by dominate ethnicity in that neighborhood. Zooming out, Denver has a lot neighborhoods of primarily white or primarily hispanic individuals. This isn't to say that other races and ethnicities don't live in the Mile High city, they just don't happen to be the most prevalent in any of Denver's neighborhoods (save for two where the majority is black individuals). The reason for this is a whole other post or five. 
 
+I began to start looking into the relationship between the ethnicity/race and poverty in the Denver neighborhoods first. Does the ethnic/racial makeup of a neighborhood translate to differing levels of opportunity? Since the data were partitioned along the most prevalent demographic group, the proportion of the dominant population was compared against the proportion of the population that were low income in the neighborhood. Using bayesian linear regression, the relationship between poverty and ethnicity proportion were modelled for both neighborhoods were predominantly white or hispanic.
+
 ![Scatter Plot](/img/post7/scatter.png)
 <sub>*Fig 2*: This scatter plot demonstrates that white individuals disproportionally live in better economic conditions than hispanic individuals. The greater the proportion of white people, the smaller the proportion of low income individuals there are. However, hispanic individuals demonstrate the exact opposite in which the higher proportion of hispanic individuals translates to higher levels of poverty.</sub>
+
+The models were created using the [`brms` package](https://cran.r-project.org/web/packages/brms/index.html) in `R` and while bayesian analysis doesn't provide a single point estimate of the linear trend for each population's relationship with poverty, it does provide a posterior probability distribution for the slope parameter. In both models, the trend is clear, as the proportion of hispanic population increase so does poverty while the opposite is true for the predominantly white neighborhoods. As the the proportion of the white population increases then the proportion of poverty in that neighborhood decreases. 
 
 ![Distribution Plot](/img/post7/posteriors.png)
 <sub>*Fig 3*: This plot shows the posterior slope probability distributions for the relationship between ethnicity and poverty. Using a bayesian linear model approach, the 95% credible interval visually demonstrates that these distributions will probably not overlap, which indicates different behaviors in the trend.</sub>
 
+But how are these populations distributed across the city? Enter the highways again. Unsurprisingly, these ethnic/racial predominant neighborhoods are contiguous creating larger areas of either predominantly white or predominantly hispanic populations. What divides these populations? Highways. I-25 seems to not just divide the city into east and west but also into enclaves of hispanic and white individuals. Similarly for I-70 in the northern part of the city. 
+
 ![Ethnicity Map](/img/post7/neigh_ethn_map.png)
 <sub>*Map 3*: This map displays the most prevalent ethnicity per neighborhood in Denver with the shade of color indicate the proportion of the population. When looking at the map, populations are separated by highways and are kept relatively contiguous based on these physical borders.</sub>
+
+Remember, neighborhoods also tend to get poorer as the proportion of the hispanic population increases while the opposite is true for the white population. This means that highways are literally separating opportunity. Now, teasing apart economic variables with demographic ones is very difficult. The United States has a dark and complicated history with holding back minority populations. Highways a
 
 #### Footnotes
 1. [HUD Income Levels](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-hud-income-levels) by *the Office of Economic Development*
