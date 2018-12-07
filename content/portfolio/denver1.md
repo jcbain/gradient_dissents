@@ -54,6 +54,7 @@ Remember, neighborhoods also tend to get poorer as the proportion of the hispani
 
 This first post doesn't dive into the details about the methods used to carry out this analysis. If you are wanting to take a look at the script I used, take a look [here](https://github.com/jcbain/fun_side_projects/tree/master/denver_opportunity).
 
+
 #### Footnotes
 1. [HUD Income Levels](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-hud-income-levels) by *the Office of Economic Development*
 2. [TIGER/Line Shapefile, 2012, county, Denver County, CO, All Roads County-based Shapefile](https://stackoverflow.com/questions/25579868/how-to-add-footnotes-to-github-flavoured-markdown) by *U.S. Department of Commerce, U.S. Census Bureau, Geography Division & Geographic Products Branch*
