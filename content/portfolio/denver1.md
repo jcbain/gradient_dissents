@@ -1,5 +1,5 @@
 +++
-draft = true
+draft = false
 image = "img/post7/denver_postcard.jpg"
 showonlyimage = false
 date = "2018-12-01T20:11:33-05:00"
@@ -53,7 +53,6 @@ But how are these populations distributed across the city? Enter the highways ag
 Remember, neighborhoods also tend to get poorer as the proportion of the hispanic population increases while the opposite is true for the white population. This means that highways are literally separating opportunity. Now, teasing apart economic variables with demographic ones is very difficult. The United States has a dark and complicated history with holding back minority populations. These are issues that I will begin to tackle in future posts of opportunity and geography.
 
 This first post doesn't dive into the details about the methods used to carry out this analysis. If you are wanting to take a look at the script I used, take a look [here](https://github.com/jcbain/fun_side_projects/tree/master/denver_opportunity).
-
 
 #### Footnotes
 1. [HUD Income Levels](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-hud-income-levels) by *the Office of Economic Development*
