@@ -20,14 +20,26 @@ Denver also resides at the confluence of I-70, the major East-West artery of the
 I thought to first look at Census tracts that touch highways and then those tracts that touch tracts that touch highways in case there was any gradient like behavior in poverty levels as people got further away from highways.
 
 ![Ethnicity Gif](/img/post7/hwy_touches_map.png)
-<sub>**Map 1**: This map highlights those Census tracts that touch a highway along with those tracts that touch tracts that touch a highway.</sub>
+<sub>*Map 1*: This map highlights those Census tracts that touch a highway along with those tracts that touch tracts that touch a highway.</sub>
 
 This direction ended in some simple exploration. There was no reason to believe that the distribution of low-income individual proportions were any different for those who live in areas touching highways as opposed to those living a bit farther out.
 
 ![Boxplot](/img/post7/box_plot.png)
 <sub>*Fig 1*: The distribution of poverty isn't much different between those blocks that touch highways and those that don't. In these particular data, the mean poverty proportion is higher for those that touch the highway but not enough to warrant difference.</sub>
 
-
+But this is certainly not where the story ends. In fact, by the time we get to the end of this post, the story will just be beginning. This is where we begin to look at what highways begin to indicate in terms of communities. Perhaps highways aren't repellents but instead fences. Let's take a step in a different direction and start looking at race and ethnicity proportions in each neighborhood of the city.
 
 
 ![Ethnicity Gif](/img/post7/hwy_plot.gif)
+<sub>*Map 2*: The proportion of each race/ethnicty for each neighborhood in Denver.</sub>
+
+This is beginning to paint a picture. The first noticeable observation from the gif above is that the city is rather segregated in some places. But how does this translate to highways and poverty? I thought to [partition the data](https://papers.nips.cc/paper/5605-partition-wise-linear-models.pdf) into neighborhoods by dominate ethnicity in that neighborhood. Zooming out, Denver has a lot neighborhoods of primarily white or primarily hispanic individuals. This isn't to say that other races and ethnicities don't live in the Mile High city, they just don't happen to be the most prevalent in any of Denver's neighborhoods (save for two where the majority is black individuals). The reason for this is a whole other post or five. 
+
+![Scatter Plot](/img/post7/scatter.png)
+<sub>*Fig 2*: This scatter plot demonstrates that white individuals disproportionally live in better economic conditions than hispanic individuals. The greater the proportion of white people, the smaller the proportion of low income individuals there are. However, hispanic individuals demonstrate the exact opposite in which the higher proportion of hispanic individuals translates to higher levels of poverty.</sub>
+
+![Distribution Plot](/img/post7/posteriors.png)
+<sub>*Fig 3*: This plot shows the posterior slope probability distributions for the relationship between ethnicity and poverty. Using a bayesian linear model approach, the 95% credible interval visually demonstrates that these distributions will probably not overlap, which indicates different behaviors in the trend.</sub>
+
+![Ethnicity Map](/img/post7/neigh_ethn_map.png)
+<sub>*Map 3*: This map displays the most prevalent ethnicity per neighborhood in Denver with the shade of color indicate the proportion of the population. When looking at the map, populations are separated by highways and are kept relatively contiguous based on these physical borders.</sub>
