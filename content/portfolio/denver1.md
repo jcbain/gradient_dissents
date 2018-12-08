@@ -58,4 +58,4 @@ This first post doesn't dive into the details about the methods used to carry ou
 1. [HUD Income Levels](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-hud-income-levels) by *the Office of Economic Development*
 2. [TIGER/Line Shapefile, 2012, county, Denver County, CO, All Roads County-based Shapefile](https://stackoverflow.com/questions/25579868/how-to-add-footnotes-to-github-flavoured-markdown) by *U.S. Department of Commerce, U.S. Census Bureau, Geography Division & Geographic Products Branch*
 3. [Route Type Codes and Definitions](https://www.census.gov/geo/reference/rttyp.html) by *the US Census*
-4. [Census Neighborhood Demographics (2010)](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-census-neighborhood-demographics-2010) by *City and County of Denver, Technology Services / GIS Data *
+4. [Census Neighborhood Demographics (2010)](https://www.denvergov.org/opendata/dataset/city-and-county-of-denver-census-neighborhood-demographics-2010) by *City and County of Denver, Technology Services / GIS Data*

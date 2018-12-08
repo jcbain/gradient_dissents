@@ -9,6 +9,8 @@ Hi! I'm an Anthropology PhD candidate who studies demographic diversity and immi
 
 Conceptually, I'm interested in understanding how diversity and geography interact with perceptions surrounding minority and vulnerable populations, particularly migrants and low-income individuals. This has led me down a path of computation and data science where I've integrated different data sources including social media, Census and Bureau of Labor Statistics data. 
 
+I also like to ask and analyze questions surrounding the geography of opportunity. *What factors allow for the poor to move out of poverty?* and *what policies are designed to keep populations separated?*, these are just few...
+
 
 ### Software
 I have experience building software designed for and/or directly using machine learning. These libraries serve as tools to help me answer the social scientific and geography questions I'm interested in.
