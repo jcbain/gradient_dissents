@@ -42,3 +42,21 @@ title = "Curriculum Vitae"
 **Graduate Instructor**, University of Missouri
 
 <p class=date>&nbsp;&nbsp; August 2015 - May 2016</p>
+
+&nbsp;&nbsp; *Anthropology 2050*, Introduction to Biological Anthropology
+
+**Invited Graduate Researcher**, Université Montpellier II, *France*
+
+<p class=date>&nbsp;&nbsp; October 2013 - April 2014</p>
+
+&nbsp;&nbsp; *Department of Human Evolutionary Biology*
+
+**Graduate Teaching Assistant**, University of Missouri
+
+<p class=date>&nbsp;&nbsp; August 2014 - December 2014</p>
+
+&nbsp;&nbsp; *Anthropology 4580*, Evolutionary Medicine
+
+<p class=date>&nbsp;&nbsp; Spring 2013 & Fall 2015</p>
+
+&nbsp;&nbsp; *Anthropology 2580*, Evolution of Human Sexuality
