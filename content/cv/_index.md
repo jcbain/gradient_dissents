@@ -3,6 +3,42 @@ date = "2016-11-06T13:00:25+05:30"
 title = "Curriculum Vitae"
 +++
 
-Thanks for stopping by! I love questions so please go ahead and ask away! Comments? I like those too. Critiques? Yup, I can handle 'em and I welcome them!
+## Education
+<p class=date>2019</p> 
 
-# Hellow 
+**Ph.D.** Anthropology, University of Missouri
+
+<p class=date>2015</p> 
+
+**M.A.** Anthropology, University of Missouri
+
+<p class=date>2012</p> 
+
+**B.A.** Anthropology, University of Missouri
+       
+**B.A.** French, University of Missouri
+
+## Academic Appointments
+**Graduate Research Assistant**, University of Missouri
+
+<p class=date>&nbsp;&nbsp; May 2018 - Present</p>
+
+&nbsp;&nbsp; *CHAOSS Project*, Open Source Software Health
+
+<p class=exinfo>&nbsp;&nbsp;&nbsp; Sloan Foundation Grant</p>
+
+
+<p class=date>&nbsp;&nbsp; May 2016 - May 2018</p>
+
+&nbsp;&nbsp; *Data Science and Analytics Master's Program*
+
+<p class=exinfo>&nbsp;&nbsp;&nbsp; Instructor for DSA 7600, Introduction to Data Science</p>
+
+<p class=date>&nbsp;&nbsp; May 2014 - Aug 2014</p>
+
+&nbsp;&nbsp; *Department of Plant Science*, Corn Genetics \& Breeding Lab
+
+
+**Graduate Instructor**, University of Missouri
+
+<p class=date>&nbsp;&nbsp; August 2015 - May 2016</p>
