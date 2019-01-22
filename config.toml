@@ -45,6 +45,10 @@ disqusshortname     = "gradient-dissents"
   name = "Get in touch"
   url = "contact/"
 
+  [[params.navlinks]]
+  name = "Curriculum Vitae"
+  url = "cv/"
+
   [params.social]
   # facebook      = "full page or profile url in facebook"
   # googleplus    = "full profile url in googleplus"
