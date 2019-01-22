@@ -2,6 +2,7 @@
 date = "2016-11-06T13:00:25+05:30"
 title = "Curriculum Vitae"
 +++
+If you would like  a `pdf` version of my CV then you can find a copy [here](/bain_cv_jan_2019.pdf). (*Last Updated:* January 2019)
 
 ## Education
 <p class=date>2019</p> 
