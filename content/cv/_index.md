@@ -129,4 +129,20 @@ A Shiny application designed to visualize the Human Development Index, and indic
 
 **Inverse** <span class=date>May 2017</span> [Water tubing mishaps look a lot like Neanderthal injuries](https://www.inverse.com/article/31028-neanderthal-injuries-anthropology-water-tube-trauma) by SARAH SLOAT. 
 
+## Other Experience
 
+<p class=date>June 2017- Present</p>
+
+**Data Analyst** *Universal Research Solutions, LLC*
+
+<p class=date>JMay 2015- June 2017</p>
+
+**Quality Assurance Specialist** *Universal Research Solutions, LLC*
+
+## Languages
+
+#### Spoken
+
+English *(maternal)*
+
+French *(proficient in speaking, reading and writing)*
