@@ -119,15 +119,15 @@ A Shiny application designed to visualize the Human Development Index, and indic
 
 ## Media
 
-**Science News** <span class=date>May 2017</span> [Water tubing accidents, table run-ins cause neandertal-like injuries](https://www.sciencenews.org/article/water-tubing-accidents-table-run-ins-cause-neandertal-injuries) by BRUCE BOWER.
+**Science News** <span class=date>May 2017</span> <span class=spec>[Water tubing accidents, table run-ins cause neandertal-like injuries](https://www.sciencenews.org/article/water-tubing-accidents-table-run-ins-cause-neandertal-injuries)</span> by BRUCE BOWER.
 
 &nbsp;
 
-**Archaeology** <span class=date>May 2017</span> [Can fossile fractures be linked to Hominin behavior](https://www.archaeology.org/news/5523-170501-neanderthal-fossil-fractures).
+**Archaeology** <span class=date>May 2017</span> <span class=spec>[Can fossile fractures be linked to Hominin behavior](https://www.archaeology.org/news/5523-170501-neanderthal-fossil-fractures)</span>.
 
 &nbsp;
 
-**Inverse** <span class=date>May 2017</span> [Water tubing mishaps look a lot like Neanderthal injuries](https://www.inverse.com/article/31028-neanderthal-injuries-anthropology-water-tube-trauma) by SARAH SLOAT. 
+**Inverse** <span class=date>May 2017</span> <span class=spec>[Water tubing mishaps look a lot like Neanderthal injuries](https://www.inverse.com/article/31028-neanderthal-injuries-anthropology-water-tube-trauma)</span> by SARAH SLOAT. 
 
 ## Other Experience
 
